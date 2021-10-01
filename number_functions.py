@@ -27,18 +27,15 @@ def prime_factors(n):
     Returns:
         List of prime factors
     """
-
-    f = []
-
     t = 2
+    factors = []
 
     while t**2 <= n:
         if n % t == 0:
-            f.append(t)
-            n = n // t
+            factors.append(t)
+            n //= t
         else:
             t += 1
+    factors.append(n)
 
-    f.append(n)
-
-    return f
+    return factors
