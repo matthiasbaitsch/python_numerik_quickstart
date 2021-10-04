@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python und Jupyter Notebooks &#8212; Arbeiten mit Python und Jupyter Notebooks</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Matrizen und Vektoren mit NumPy" href="02-numpy.html" />
+    <link rel="prev" title="Vorbemerkungen" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Arbeiten mit Python und Jupyter Notebooks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Vorbemerkungen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Python und Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-numpy.html">
+   Matrizen und Vektoren mit NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-matplotlib.html">
+   Plots mit Matplotlib
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-notebooks">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variablen-operatoren-und-mathematische-funktionen">
+   Variablen, Operatoren und mathematische Funktionen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beispiel">
+     Beispiel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listen">
+   Listen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ranges">
+     Ranges
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kontrollstrukturen">
+   Kontrollstrukturen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verzweigungen-mit-if-elif-und-else">
+     Verzweigungen mit if, elif und else
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logische-ausdrucke">
+       Logische Ausdrücke
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schleifen">
+     Schleifen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funktionen">
+   Funktionen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funktionen-in-eigenen-dateien">
+     Funktionen in eigenen Dateien
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametrisierte-funktionen">
+     Parametrisierte Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python-und-jupyter-notebooks">
+<h1>Python und Jupyter Notebooks<a class="headerlink" href="#python-und-jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jupyter-notebooks">
+<h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>Ein Jupyter Notebook ist ein Dokument, das sowohl Text als auch Programmcode enthalten kann.
+In einer geeigneten Umgebung (z.B. browserbasiert in
+<a class="reference external" href="https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/master?urlpath=lab/tree/demo">JupyterLab</a>
+oder einer Entwicklungsumgebung wie
+<a class="reference external" href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">Visual Studio Code</a>
+)
+können damit interaktive Dokumente erstellt werden, die sich in verschiedene Formate exportieren lassen (HTML, PDF, LaTeX und Folien für Präsentationen).</p>
+<p>Ein Jupyter Notebook besteht aus Zellen die entweder</p>
+<ul class="simple">
+<li><p>Text in <a class="reference external" href="https://www.ibm.com/docs/en/db2-event-store/2.0.0?topic=notebooks-markdown-jupyter-cheatsheet">Markdown-Schreibweise</a> oder</p></li>
+<li><p>Programmcode (bei uns Python)</p></li>
+</ul>
+<p>enthalten können. Textzellen lassen sich mit einem Doppelklick bearbeiten, mit <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> schließen Sie die Bearbeitung ab.</p>
+</div>
+<div class="section" id="variablen-operatoren-und-mathematische-funktionen">
+<h2>Variablen, Operatoren und mathematische Funktionen<a class="headerlink" href="#variablen-operatoren-und-mathematische-funktionen" title="Permalink to this headline">¶</a></h2>
+<p>Variablen enthalten Werte, im Beispiel unten eine Zeichenkette, eine Fließkommazahl und eine ganze Zahl. Die Ausgabe erfolgt mit der <code class="docutils literal notranslate"><span class="pre">print</span></code> - Funktion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;Hallo&#39;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">3.1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hallo 3.1 42
+</pre></div>
+</div>
+</div>
+</div>
+<p>Für numerische Argumente haben die Operatoren <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> die üblichen Bedeutungen. Zusätzlich gibt es</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code> - Rest einer Division</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">//</span></code> - Division mit Runden nach unten</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code> - Potenz</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+343
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um die gängigen mathematischen Funktionen wie <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">pow</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, … verwenden zu können, muss zunächst die <code class="docutils literal notranslate"><span class="pre">math</span></code>-Bibliothek importiert werden.
+Dann stehen auch die mathematischen Konstanten <span class="math notranslate nohighlight">\(\pi\)</span> und <span class="math notranslate nohighlight">\(e\)</span> zur Verfügung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+3.141592653589793
+2.718281828459045
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="beispiel">
+<h3>Beispiel<a class="headerlink" href="#beispiel" title="Permalink to this headline">¶</a></h3>
+<p>Die quadratische Gleichung <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span> besitzt die Lösungen</p>
+<div class="math notranslate nohighlight">
+\[
+    x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]</div>
+<p>die hier in Python berechnet werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Lösungen: x1 =&#39;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s1">&#39;und x2 =&#39;</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lösungen: x1 = -2.3860009363293826 und x2 = 1.8860009363293826
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="listen">
+<h2>Listen<a class="headerlink" href="#listen" title="Permalink to this headline">¶</a></h2>
+<p>Eine Liste in Python kann man sich als eine Sequenz von Kästchen vorstellen. Jedes Kästchen kann beliebige Python-Objekte enthalten, die beim Erzeugen der Liste
+in eckige Klammern geschrieben und durch Kommata getrennt werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">pi</span><span class="p">,</span> <span class="s1">&#39;Hallo!&#39;</span><span class="p">,</span> <span class="mi">2021</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Liste l =&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Liste l = [3.141592653589793, &#39;Hallo!&#39;, 2021]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Zugriff auf den Inhalt der Kästchen erfolgt mit einem Index, wobei das erste Kästchen den Index <code class="docutils literal notranslate"><span class="pre">0</span></code> hat. Die Länge einer Liste erhält man
+mit der Funktion <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Inhalt der Liste l im Kästchen mit der Nummer 1:&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Auf Wiedersehen!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Geänderte Liste:&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Anzahl der Kästchen in l:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inhalt der Liste l im Kästchen mit der Nummer 1: Hallo!
+Geänderte Liste: [3.141592653589793, &#39;Auf Wiedersehen!&#39;, 2021]
+Anzahl der Kästchen in l: 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Listen können auch Schritt für Schritt erzeugt werden. Es ist zum Beispiel möglich, mit einer leeren Liste zu beginnen und Kästchen anzuhängen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">h</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Bonjour!&#39;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1789</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Liste h=&#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Liste h= [&#39;Bonjour!&#39;, 1789, 2.718281828459045]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es gibt vielfältige Möglichkeiten mit Listen zu Arbeiten, im Zweifelsfall hilft ein Blick in die
+<a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">offizielle Dokumentation</a>. Hier ein paar Beispiele</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.141592653589793, &#39;Auf Wiedersehen!&#39;, 2021, 3.141592653589793, &#39;Auf Wiedersehen!&#39;, 2021]
+[3.141592653589793, &#39;Auf Wiedersehen!&#39;, 2021, &#39;Bonjour!&#39;, 1789, 2.718281828459045]
+2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ranges">
+<h3>Ranges<a class="headerlink" href="#ranges" title="Permalink to this headline">¶</a></h3>
+<p>Ein nützliches Objekt, das sich ähnlich wie eine Liste verhält (aber keine ist), wird mit <code class="docutils literal notranslate"><span class="pre">range</span></code> erzeugt. Mit den ganzen Zahlen <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code>
+liefert <code class="docutils literal notranslate"><span class="pre">range(a,</span> <span class="pre">b)</span></code> die Sequenz</p>
+<div class="math notranslate nohighlight">
+\[
+    a, a + 1, \dots, b - 1,
+\]</div>
+<p>die obere Grenze <code class="docutils literal notranslate"><span class="pre">b</span></code> ist also nicht enthalten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Anzahl Elemente: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r[0] =&#39;</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;r[1] = &#39;</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;... , r[4] = &#39;</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(2, 7)
+Anzahl Elemente:  5
+r[0] = 2 r[1] =  3 ... , r[4] =  6
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kontrollstrukturen">
+<h2>Kontrollstrukturen<a class="headerlink" href="#kontrollstrukturen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="verzweigungen-mit-if-elif-und-else">
+<h3>Verzweigungen mit if, elif und else<a class="headerlink" href="#verzweigungen-mit-if-elif-und-else" title="Permalink to this headline">¶</a></h3>
+<p>In einer <strong>bedingten Anweisung</strong> wird Programmcode wird nur dann ausgeführt, wenn eine Bedingung erfüllt ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">33</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">a</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Zahl&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;ist kleiner als 100&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b =&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a = &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Zahl 33 ist kleiner als 100
+b = 133
+a =  33
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sie sehen hier zwei besondere Merkmale der Programmiersprache Python - den <strong>Doppelpunkt</strong> und die <strong>Einrückung</strong>:</p>
+<ul class="simple">
+<li><p>Der Doppelpunkt hinter der Bedingung sagt, dass jetzt ein Abschnitt Programmcode kommt, der zu dem <code class="docutils literal notranslate"><span class="pre">if</span></code> gehört.</p></li>
+<li><p>Um diesen Zusammenhang zum Ausdruck zu bringen, werden die zugehörigen Zeilen nach rechts eingerückt. Hierzu verwendet man die Tabulatortaste.</p></li>
+</ul>
+<p>Die Ausgabe von <code class="docutils literal notranslate"><span class="pre">a</span></code> soll hingegen auf jeden Fall erfolgen, die Zeile beginnt daher wieder in der ersten Spalte.</p>
+<p>Wenn nach dem <code class="docutils literal notranslate"><span class="pre">if</span></code> noch ein <code class="docutils literal notranslate"><span class="pre">else</span></code> kommt, dann spricht man von einer <strong>Alternative</strong>, der Block nach dem <code class="docutils literal notranslate"><span class="pre">else</span></code> wird ausgeführt, wenn
+die Bedingung nicht erfüllt ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">433</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">a</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Zahl&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;ist kleiner als 100&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Zahl&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;ist nicht kleiner als 100&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b =&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a = &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Zahl 433 ist nicht kleiner als 100
+b = 333
+a =  433
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mithilfe des Schlüsselworts <code class="docutils literal notranslate"><span class="pre">elif</span></code> lassen sich <strong>Mehrfachverzweigungen</strong> realisieren. Hier nochmal das Beispiel der quadratischen
+Gleichung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Diskriminante</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+
+<span class="c1"># Fälle</span>
+<span class="k">if</span> <span class="n">D</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Gleichung besitzt zwei Lösungen x1 =&#39;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s1">&#39; und x2 =&#39;</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">D</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Gleichung besitzt eine Lösung x1 = &#39;</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Gleichung besitzt keine reellwertige Lösung&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Gleichung besitzt eine Lösung x1 =  -1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="logische-ausdrucke">
+<h4>Logische Ausdrücke<a class="headerlink" href="#logische-ausdrucke" title="Permalink to this headline">¶</a></h4>
+<p>Logische Ausdrücke werden meist mithilfe der Vergleichsoperatoren <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> und <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> realisiert. Mithilfe der Schlüsselwörter <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> und <code class="docutils literal notranslate"><span class="pre">not</span></code> lassen sich
+mehrere Bedingungen miteinander verknüpfen.</p>
+<p>Wir sehen das am Beispiel eines Schaltjahres:</p>
+<blockquote>
+<div><p>Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400. For example, the years 1700, 1800, and 1900 are not leap years, but the years 1600 and 2000 are.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">1900</span>
+
+<span class="k">if</span> <span class="n">y</span><span class="o">%</span><span class="k">400</span> == 0 or (y%4 == 0 and not y%100 == 0):
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Das Jahr&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ist ein Schaltjahr&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kein Schaltjahr:&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kein Schaltjahr: 1900
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="schleifen">
+<h3>Schleifen<a class="headerlink" href="#schleifen" title="Permalink to this headline">¶</a></h3>
+<p>In einer <em><strong><code class="docutils literal notranslate"><span class="pre">for</span></code> - Schleife</strong></em> nimmt eine Schleifenvariable nacheinander alle Werte eines listenartigen Objekts an (etwas vereinfacht gesagt).</p>
+<p>In der einfachsten Form sieht das so aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="s1">&#39;Hallo!&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Element&#39;</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Element 42
+Element 3.141592653589793
+Element Hallo!
+Element 0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sie sehen wieder die von der Alternative schon bekannte Kombination von Doppelpunkt und Einrückung!</p>
+<p>Manchmal ist es wichtig zu wissen, an welcher Position ein Element der Liste steht. In diesem Fall verwendet man eine
+Zählvariable (in der Regel <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> oder <code class="docutils literal notranslate"><span class="pre">k</span></code>) in Kombination mit der <code class="docutils literal notranslate"><span class="pre">range</span></code> - Funktion und häufig auch <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Element an Position&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ist&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Element an Position 0 ist 42
+Element an Position 1 ist 3.141592653589793
+Element an Position 2 ist Hallo!
+Element an Position 3 ist 0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bei einer <code class="docutils literal notranslate"><span class="pre">while</span></code> - Schleife werden Anweisungen so lange ausgeführt wie eine Fortsetzungsbeding erfüllt ist. Sehr häufig werden <code class="docutils literal notranslate"><span class="pre">while</span></code> - Schleifen
+bei numerischen Näherungsverfahren verwendet, zum Beispiel bei der Berechnung einer Quadratwurzel mit dem Heron-Verfahren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wir suchen die Wurzel aus dieser Zahl</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Startwert für die Näherungslösung</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Iteration</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-15</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zwischenergebnis:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Ergebnis</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ergebnis: x =&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;mit x^2 =&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zwischenergebnis: 1.5
+Zwischenergebnis: 1.4166666666666665
+Zwischenergebnis: 1.4142156862745097
+Zwischenergebnis: 1.4142135623746899
+Zwischenergebnis: 1.414213562373095
+Ergebnis: x = 1.414213562373095 mit x^2 = 1.9999999999999996
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dafür, welche der beiden Arten von Schleifen verwendet werden soll gibt es eine einfach Regel:</p>
+<ul class="simple">
+<li><p>Verwenden Sie eine <code class="docutils literal notranslate"><span class="pre">for</span></code> - Schleife, wenn vorab bekannt ist, wie oft die Schleife durchlaufen werden soll. Dies ist insbesondere
+bei der Verarbeitung von Listen der Fall.</p></li>
+<li><p>Andernfalls ist meist eine <code class="docutils literal notranslate"><span class="pre">while</span></code> - Schleife sinnvoll.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="funktionen">
+<h2>Funktionen<a class="headerlink" href="#funktionen" title="Permalink to this headline">¶</a></h2>
+<p>Eine Funktion fasst Anweisungen so zusammen, so dass Sie mit unterschiedlichen Eingabewerten ausgeführt werden können. Hier ein Beispiel, in dem
+der größte gemeinsame Teiler von zwei ganzen Zahlen bestimmt wird (<a class="reference external" href="https://de.wikipedia.org/wiki/Euklidischer_Algorithmus">Verfahren von Euklid</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ggt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">h</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GGT von 33 und 88 ist&#39;</span><span class="p">,</span> <span class="n">ggt</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">88</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GGT von 33 und 88 ist 11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine Funktion beginnt also mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">def</span></code> gefolgt von dem Funktionsnamen, einer Parameterliste und (wieder) einem Doppelpunkt. Danach kommen
+eingerückt die Anweisungen im Rumpf der Funktion. Das berechnete Ergebnis wird mit <code class="docutils literal notranslate"><span class="pre">return</span></code> zurück gegeben.</p>
+<div class="section" id="funktionen-in-eigenen-dateien">
+<h3>Funktionen in eigenen Dateien<a class="headerlink" href="#funktionen-in-eigenen-dateien" title="Permalink to this headline">¶</a></h3>
+<p>Sollen Funktionen in mehreren Jupyter Notebooks verwendet werden, dann kann man sie in eine eigene Python-Datei auslagern. Zum Beispiel enthält die (im selben
+Ordner wie die Jupyter Notebooks) liegende Datei
+<code class="docutils literal notranslate"><span class="pre">number_functions.py</span></code> (Zip-Datei von Moodle herunterladen) Funktionen aus dem Bereich der Zahlentheorie. Um diese zu verwenden müssen sie zunächst importiert werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importieren</span>
+<span class="kn">from</span> <span class="nn">number_functions</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Funktionen verwenden</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2 ist prim: &#39;</span><span class="p">,</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;11 ist prim: &#39;</span><span class="p">,</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;111 ist prim: &#39;</span><span class="p">,</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">111</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Primfaktoren von 126: &#39;</span><span class="p">,</span> <span class="n">prime_factors</span><span class="p">(</span><span class="mi">126</span><span class="p">))</span>
+
+<span class="c1"># Test der Funktion is_prime</span>
+<span class="n">passed</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10001</span><span class="p">):</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="n">prime_factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">factors</span><span class="p">:</span>
+        <span class="n">product</span> <span class="o">*=</span> <span class="n">f</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n =&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;: Faktor&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;ist nicht prim&#39;</span><span class="p">)</span>
+            <span class="n">passed</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">product</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n = &#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;: Nicht Produkt der Primfaktoren: &#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">passed</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">passed</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Primfaktoren für die Zahlen von 1 bis 10000 sind OK&#39;</span><span class="p">)</span>
+
+<span class="c1"># Nervig: Wenn wir in der Funktion etwas ändern wird sie standardmäßig nicht neu</span>
+<span class="c1"># geladen. Die autoreload - Erweiterung löst dieses Problem.</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 ist prim:  True
+11 ist prim:  True
+111 ist prim:  False
+Primfaktoren von 126:  [2, 3, 3, 7]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Primfaktoren für die Zahlen von 1 bis 10000 sind OK
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tipp: In den Funktionen ist ein so genannter Docstring enthalten, der die Funktion beschreibt.
+Damit erhält man eine Erklärung zur Funktion, wenn man den Mauszeiger über den Funktionsaufruf hält.</p>
+</div>
+<div class="section" id="parametrisierte-funktionen">
+<h3>Parametrisierte Funktionen<a class="headerlink" href="#parametrisierte-funktionen" title="Permalink to this headline">¶</a></h3>
+<p>Aus der Mathematik kennen Sie Funktionenscharen der Form</p>
+<div class="math notranslate nohighlight">
+\[
+    f_n(x) = (1 - x/n)^2.
+\]</div>
+<p>Gemeint ist damit, dass wir für jede Zahl <span class="math notranslate nohighlight">\(n\)</span> eine Funktion <span class="math notranslate nohighlight">\(f_n\)</span> erhalten, zum Beispiel</p>
+<div class="math notranslate nohighlight">
+\[
+    f_1(x) = (1 - x) ^ 2 \quad \text{oder} \quad f_5(x) = (1 - x / 5)^2.
+\]</div>
+<p>In Python lässt sich das durch eine Funktion realisieren, die eine Funktion zurückliefert. Für unser Beispiel
+sieht das so aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_fn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">fn</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">make_fn</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">f5</span> <span class="o">=</span> <span class="n">make_fn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f1(2) =&#39;</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f5(2) =&#39;</span><span class="p">,</span> <span class="n">f5</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f1(2) = 1.0
+f5(2) = 0.36
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="intro.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Vorbemerkungen</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="02-numpy.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Matrizen und Vektoren mit NumPy</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Matthias Baitsch<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
