@@ -92,7 +92,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-python.html">
-   Python und Jupyter Notebooks
+   Jupyter Notebooks und Python
   </a>
  </li>
  <li class="toctree-l1">
@@ -197,6 +197,13 @@
   <a class="reference internal nav-link" href="#linienplots">
    Linienplots
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plots-beschriften">
+     Plots beschriften
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -234,13 +241,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x122963af0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x117207b50&gt;]
 </pre></div>
 </div>
 <img alt="_images/03-matplotlib_3_1.png" src="_images/03-matplotlib_3_1.png" />
 </div>
 </div>
-<p>Um Funktionen zu plotten geht man genau so vor, allerdings verwendet man dann so viele Punkte, dass sich der
+<p>Um <strong>Funktionen</strong> zu <strong>plotten</strong> geht man genau so vor, allerdings verwendet man dann so viele Punkte, dass sich der
 Plot für das Auge wie eine glatte Kurve darstellt. Die textuelle Ausgabe des Plotobjekts (siehe oben) können
 wir mit einem Semikolon unterdrücken.</p>
 <div class="cell docutils container">
@@ -255,13 +262,16 @@ wir mit einem Semikolon unterdrücken.</p>
 <img alt="_images/03-matplotlib_5_0.png" src="_images/03-matplotlib_5_0.png" />
 </div>
 </div>
-<p>Mehrere Funktionen lassen sich plotten, indem mehrere Paare von Koordinaten übergeben werden.</p>
+<p><strong>Mehrere Funktionen</strong> lassen sich plotten, indem die <code class="docutils literal notranslate"><span class="pre">plot</span></code> - Funktion mehrfach hintereinander aufgerufen wird.
+Hier die Sinusfunktion, die Kosinusfunktion und die Nullfunktion in einem Plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
 </pre></div>
 </div>
 </div>
@@ -269,7 +279,7 @@ wir mit einem Semikolon unterdrücken.</p>
 <img alt="_images/03-matplotlib_7_0.png" src="_images/03-matplotlib_7_0.png" />
 </div>
 </div>
-<p>Eine zweite Möglichkeit besteht darin, eine Liste mit <span class="math notranslate nohighlight">\(x\)</span>-Werten und eine Matrix zu übergeben. Dabei stehen in jeder Spalte
+<p>Eine zweite Möglichkeit mehrere Graphen zu erstellen besteht darin, eine Liste mit <span class="math notranslate nohighlight">\(x\)</span>-Werten und eine Matrix zu übergeben. Dabei stehen in jeder Spalte
 der Matrix die jeweiligen Funktionswerte. Die Anzahl der Zeilen der Matrix muss dabei gleich der Anzahl der <span class="math notranslate nohighlight">\(x\)</span>-Werte sein, die
 Anzahl der Spalten ist die Anzahl der zu plottenden Funktionen.</p>
 <div class="cell docutils container">
@@ -282,7 +292,30 @@ Anzahl der Spalten ist die Anzahl der zu plottenden Funktionen.</p>
 <img alt="_images/03-matplotlib_9_0.png" src="_images/03-matplotlib_9_0.png" />
 </div>
 </div>
+<div class="section" id="plots-beschriften">
+<h3>Plots beschriften<a class="headerlink" href="#plots-beschriften" title="Permalink to this headline">¶</a></h3>
+<p>Es gibt eine Reihe von Funktionen um Plots zu beschriften und die Art der Darstellung zu beeinflussen.
+Die wichtigsten hier in einem Beispiel, eine ausführlichere Beschreibung gibt es im
+<a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py">offiziellen Tutorial</a>
+oder <a class="reference external" href="https://www.python-kurs.eu/matplotlib.php">hier</a> in deutscher Sprache.
+.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;sin(x)&#39;</span><span class="p">,</span> <span class="s1">&#39;cos(x)&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Trigonometrische Funktionen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03-matplotlib_11_0.png" src="_images/03-matplotlib_11_0.png" />
+</div>
+</div>
 <p>Wird bei Bedarf noch ergänzt.</p>
+</div>
 </div>
 </div>
 
