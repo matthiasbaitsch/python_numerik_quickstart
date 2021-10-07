@@ -1,0 +1,87 @@
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{bm}
+\usepackage{minted}
+
+
+
+\newcommand{\mtd}{T_{\mathrm{D}}}
+\newcommand{\momegad}{\omega_{\mathrm{D}}}
+\newcommand{\mup}{u_{\mathrm{p}}}
+\newcommand{\muh}{u_{\mathrm{h}}}
+\newcommand{\mparen}[1]{\left(#1\right)}
+
+
+\pagestyle{empty}
+
+\graphicspath{{00-pics/}}
+
+\newcommand{\xheader}[2]{
+  \vspace*{-22mm}
+
+  \begin{minipage}{60mm}
+    \includegraphics[width=60mm]{BO-Logo_m_Wortmarke_L}  
+  \end{minipage}
+  \hspace*{37mm}
+  \begin{minipage}{60mm}
+    \vspace*{-2mm}
+    \raggedleft
+    Python und Jupyter Notebooks \\[1em]
+    Prof. Dr.-Ing. M. Baitsch
+  \end{minipage}
+  \vspace*{1mm}
+  \section*{Übungsblatt #1: #2}
+}
+
+\newcounter{aufgabe}
+\newcounter{teilaufgabe}[aufgabe]
+
+
+\newcommand{\aufgabe}[1]{
+\stepcounter{aufgabe}
+\textbf{Aufgabe \arabic{aufgabe}:} #1
+\stepcounter{teilaufgabe}
+}
+
+\newcommand{\teilaufgabe}[1]{
+\textbf{\arabic{aufgabe}.\arabic{teilaufgabe}} #1
+\stepcounter{teilaufgabe}
+}
+
+\newcommand{\mmarkx}{\raisebox{0.4ex}{$\bm{*}$}}
+
+\newcommand{\teilaufgabex}[1]{
+\textbf{\arabic{aufgabe}.\arabic{teilaufgabe}\mmarkx} #1
+\stepcounter{teilaufgabe}
+}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\grad}{grad}
+\newcommand{\iu}{{\mathrm{i}\mkern1mu}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\mdiff}[1]{\mathrm{d}#1}
+\newcommand{\mdiffx}{\mdiff{x}}
+\newcommand{\mdiffxy}{\mdiff{x}\,\mdiff{y}}
+\newcommand{\mdiffyx}{\mdiff{y}\,\mdiff{x}}
+
+
+\setminted{fontsize=\footnotesize,autogobble,frame=single,rulecolor=\color{gray},framesep=1ex}
+\newminted{python}{xleftmargin=0em}
+\newcommand{\mc}[1]{\mintinline[fontsize=\normalsize]{python}{#1}}
+\AfterEndEnvironment{minted}{\vspace*{-1ex}}
+
+
+\newcommand{\datei}[1]{{\textbf{\color{magenta}'#1'}}}
+\newcounter{uebcounter}\stepcounter{uebcounter}
+\newcommand{\uebdatei}{\datei{uebung\_\ifnum\value{uebcounter}<10 0\fi\arabic{uebcounter}.ipynb}\stepcounter{uebcounter}}
+
+
