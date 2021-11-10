@@ -258,8 +258,25 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mehrere-ruckgabewerte">
+     Mehrere Rückgabewerte
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parametrisierte-funktionen">
      Parametrisierte Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weiterfuhrende-themen">
+   Weiterführende Themen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mehrfachvariablen">
+     Mehrfachvariablen
     </a>
    </li>
   </ul>
@@ -363,9 +380,9 @@ Dann stehen auch die mathematischen Konstanten <span class="math notranslate noh
 <p>die hier in Python berechnet werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span>  <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Lösungen: x1 =&#39;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s1">&#39;und x2 =&#39;</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
@@ -373,7 +390,7 @@ Dann stehen auch die mathematischen Konstanten <span class="math notranslate noh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lösungen: x1 = -2.3860009363293826 und x2 = 1.8860009363293826
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lösungen: x1 = -1.0 und x2 = 3.0
 </pre></div>
 </div>
 </div>
@@ -751,8 +768,35 @@ Primfaktoren von 126:  [2, 3, 3, 7]
 </div>
 </div>
 </div>
-<p>Tipp: In den Funktionen ist ein so genannter Docstring enthalten, der die Funktion beschreibt.
-Damit erhält man eine Erklärung zur Funktion, wenn man den Mauszeiger über den Funktionsaufruf hält.</p>
+</div>
+<div class="section" id="mehrere-ruckgabewerte">
+<h3>Mehrere Rückgabewerte<a class="headerlink" href="#mehrere-ruckgabewerte" title="Permalink to this headline">¶</a></h3>
+<p>Funktionen können in Python mehrere Werte zurückgeben. Das Funktioniert so:</p>
+<ul class="simple">
+<li><p>In der Return-Anweisung stehen mehrere Variablen durch Kommas getrennt</p></li>
+<li><p>Beim Aufruf der Funktion stehen links vom Gleichheitszeichen ebenfalls mehrere Variablen, getrennt durch Kommas get</p></li>
+<li><p>Die Anzahl der Variablen in der Return-Anweisung und beim Aufruf muss übereinstimmen, die Namen dürfen frei gewählt werden</p></li>
+</ul>
+<p>Hier nochmals das Beispiel mit der quadratischen Gleichung, diesmal in einer Funktion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">qroots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
+
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">qroots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; Lösungen: x1 =&#39;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s1">&#39;und x2=&#39;</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Lösungen: x1 = -1.0 und x2= 3.0
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="parametrisierte-funktionen">
 <h3>Parametrisierte Funktionen<a class="headerlink" href="#parametrisierte-funktionen" title="Permalink to this headline">¶</a></h3>
@@ -786,6 +830,48 @@ sieht das so aus:</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f1(2) = 1.0
 f5(2) = 0.36
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weiterfuhrende-themen">
+<h2>Weiterführende Themen<a class="headerlink" href="#weiterfuhrende-themen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mehrfachvariablen">
+<h3>Mehrfachvariablen<a class="headerlink" href="#mehrfachvariablen" title="Permalink to this headline">¶</a></h3>
+<p>Es gibt Situationen, in denen verschiedene Werte zusammengehören, wie das zum Beispiel bei einem Quader mit Länge, Breite und Höhe der Fall ist. Hier bietet es sich an, die Werte in einem einzelnen Objekt zusammenzufassen, wie das mit dem <code class="docutils literal notranslate"><span class="pre">objdict</span></code>-Paket und der Klasse <code class="docutils literal notranslate"><span class="pre">ObjDict</span></code> möglich ist. Hier ein Beispiel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">objdict</span> <span class="kn">import</span> <span class="n">ObjDict</span>
+
+<span class="c1"># Define struct</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">ObjDict</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">q</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">q</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Print</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rectangular solid with dimensions&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+
+<span class="c1"># Compute volume and print</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="n">q</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">q</span><span class="o">.</span><span class="n">height</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volume V =&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_8918</span><span class="o">/</span><span class="mf">3910665607.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">objdict</span> <span class="kn">import</span> <span class="n">ObjDict</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Define struct</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">q</span> <span class="o">=</span> <span class="n">ObjDict</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">q</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;objdict&#39;
 </pre></div>
 </div>
 </div>

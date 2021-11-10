@@ -243,6 +243,23 @@
      Lineare Algebra
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exotische-operationen">
+     Exotische Operationen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zeilen-einer-matrix-multiplizieren">
+       Zeilen einer Matrix multiplizieren
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vektor-von-zeilen-einer-matrix-addieren-subtrahieren">
+     Vektor von Zeilen einer Matrix addieren/subtrahieren
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -397,6 +414,27 @@ x[0] = 5
 </div>
 </div>
 </div>
+<p>Mit negativen Indizes wird vom Ende des Arrays gezählt. Dabei erhält man mit dem Index -1 das letzte Element, mit -2 das vorletzte und so weiter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     x = &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; x[-1] = &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; x[-2] = &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x[-11] = &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">11</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     x =  [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+ x[-1] =  1.0
+ x[-2] =  0.9
+x[-11] =  0.0
+</pre></div>
+</div>
+</div>
+</div>
 <p>Häufig möchte man in einem Rechenschritt auf mehrere Einträge eines Arrays gleichzeitig zugreifen. Hierfür gibt es zwei Möglichkeiten:</p>
 <ul class="simple">
 <li><p>Den Doppelpunkt-Operator</p></li>
@@ -419,7 +457,7 @@ Erläuterung sehr technisch und schwer zugänglich. Im Folgenden sind daher die 
 </div>
 </div>
 </div>
-<p>erhalten wir also die Einträge an den Positionen von 3 bis 5. Zusätzlich kann man mit <code class="docutils literal notranslate"><span class="pre">start:stop:inc</span></code> noch ein Inkrement angeben,
+<p>erhalten wir also die Einträge an den Positionen <span class="math notranslate nohighlight">\(2, 3, 4\)</span>. Zusätzlich kann man mit <code class="docutils literal notranslate"><span class="pre">start:stop:inc</span></code> noch ein Inkrement angeben,
 zum Beispiel bekommen wir mit</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -533,10 +571,18 @@ bei der Bedeutung der Operatoren aufpassen.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = [5 1 9 2] , y = [1 2 1 3]
-x + y = [ 6  3 10  5]
-x * y = [5 2 9 6]
-y / 4 = [0.25 0.5  0.25 0.75]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ] , y = [1 2 1 3]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_8932</span><span class="o">/</span><span class="mf">730720895.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x =&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;, y =&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x + y =&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x * y =&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y / 4 =&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (11,) (4,) 
 </pre></div>
 </div>
 </div>
@@ -695,6 +741,110 @@ A^TA = [[ 45  18  57  36]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lösung x = [-0.14285714  2.85714286]
 Zur Kontrolle:  [0. 0.]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exotische-operationen">
+<h3>Exotische Operationen<a class="headerlink" href="#exotische-operationen" title="Permalink to this headline">¶</a></h3>
+<p>Ausführliche Erklärung hier:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://numpy.org/doc/stable/user/basics.broadcasting.html
+</pre></div>
+</div>
+<div class="section" id="zeilen-einer-matrix-multiplizieren">
+<h4>Zeilen einer Matrix multiplizieren<a class="headerlink" href="#zeilen-einer-matrix-multiplizieren" title="Permalink to this headline">¶</a></h4>
+<p>Sollen die Zeilen einer Matrix mit den Einträgen eines Vektors multipliziert werden, wie zum Beispiel</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+    2 \\ 3 \\ 4
+\end{pmatrix}
+\begin{pmatrix}
+    1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9
+\end{pmatrix}
+\rightarrow
+\begin{pmatrix}
+    2 &amp; 4 &amp; 6 \\ 12 &amp; 15 &amp; 18 \\ 28 &amp; 32 &amp; 36
+\end{pmatrix}
+\end{split}\]</div>
+<p>dann kann man den <code class="docutils literal notranslate"><span class="pre">*</span></code>-Operator verwenden, muss aber bei dem Vektor noch eine Achse hinzufügen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c[:, None].shape =&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A.shape =&#39;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c * A =&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c[:, None].shape = (3, 1)
+A.shape = (3, 3)
+c * A = [[ 2  4  6]
+ [12 15 18]
+ [28 32 36]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Warum funktioniert das? Weil die letzte Dimension 1 von <code class="docutils literal notranslate"><span class="pre">c[:,</span> <span class="pre">None]</span></code> auf die letzte Dimension 3 von <code class="docutils literal notranslate"><span class="pre">A</span></code> verteilt wird (<strong>broadcasting</strong>).</p>
+</div>
+</div>
+<div class="section" id="vektor-von-zeilen-einer-matrix-addieren-subtrahieren">
+<h3>Vektor von Zeilen einer Matrix addieren/subtrahieren<a class="headerlink" href="#vektor-von-zeilen-einer-matrix-addieren-subtrahieren" title="Permalink to this headline">¶</a></h3>
+<p>Um einen Vektor zu allen Zeilen einer Matrix zu addieren/subtrahieren, wie in</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+    2 &amp; 3 &amp; 4
+\end{pmatrix}
++
+\begin{pmatrix}
+    1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9
+\end{pmatrix}
+\rightarrow
+\begin{pmatrix}
+    3 &amp; 5 &amp; 7 \\ 6 &amp; 8 &amp; 10 \\ 9 &amp; 11 &amp; 13
+\end{pmatrix},
+\end{split}\]</div>
+<p>verwendet man einfach den entsprechenden Operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c.shape =&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A.shape =&#39;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c + A =&#39;</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c.shape = (3,)
+A.shape = (3, 3)
+c + A = [[ 3  5  7]
+ [ 6  8 10]
+ [ 9 11 13]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier passt die letzte Dimension und die erste wird aufgefüllt. Man hätte die fehlende Achse auch explizit einsetzen können:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c[None, :].shape =&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A.shape =&#39;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c + A =&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c[None, :].shape = (1, 3)
+A.shape = (3, 3)
+c + A = [[ 3  5  7]
+ [ 6  8 10]
+ [ 9 11 13]]
 </pre></div>
 </div>
 </div>
