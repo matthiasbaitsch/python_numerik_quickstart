@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/var/folders/j8/srx366hn5834sbj00b6mz9_40000gp/T/ipykernel_98817/3434815917.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/j8/srx366hn5834sbj00b6mz9_40000gp/T/ipykernel_176/3434815917.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;32mfrom[0m [0mmath[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      2[0m [0;32mfrom[0m [0mmpl_toolkits[0m [0;32mimport[0m [0mmplot3d[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 3[0;31m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mintegrate[0m [0;32mimport[0m [0msolve_ivp[0m[0;34m[0m[0;34m[0m[0m

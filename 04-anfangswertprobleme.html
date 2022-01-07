@@ -262,7 +262,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_98817</span><span class="o">/</span><span class="mf">3434815917.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_176</span><span class="o">/</span><span class="mf">3434815917.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
@@ -393,7 +393,7 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Näherungslösung</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">,</span> <span class="n">max_step</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">max_step</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
 <span class="c1"># Plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xr</span><span class="p">,</span> <span class="n">yr</span><span class="p">)</span>
@@ -405,10 +405,34 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
 <img alt="_images/04-anfangswertprobleme_15_0.png" src="_images/04-anfangswertprobleme_15_0.png" />
 </div>
 </div>
+<p>Damit das Verfahren hier keine zu großen Schrittweiten wählt, wird mit <code class="docutils literal notranslate"><span class="pre">max_step=0.2</span></code> der Wert von <span class="math notranslate nohighlight">\(h\)</span> nach oben begrenzt.</p>
 </div>
 </div>
 <div class="section" id="systeme-von-differentialgleichungen">
 <h2>Systeme von Differentialgleichungen<a class="headerlink" href="#systeme-von-differentialgleichungen" title="Permalink to this headline">¶</a></h2>
+<p>In der Praxis gibt es häufig mit Aufgaben, die auf Systeme von Differentialgleichungen führen. Ein Beispiel ist das System</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}
+  \dot y_1(t) &amp;=&amp; a \cdot (y_2(t) - y_1(t))\\
+  \dot y_2(t) &amp;=&amp; y_1(t) \cdot (b - y_3(t)) - y_2(t)\\
+  \dot y_3(t) &amp;=&amp; y_1(t) \cdot y_2(t) - c \cdot y_3(t)
+\end{array}
+\end{split}\]</div>
+<p>n dem die zeitlichen Ableitungen Ableitungen von drei Funktionen jeweils von den Funktionswerten der anderen Funktionen abhängen. Dabei sind  vorgegebene Zahlenwerte. In diesem Fall ordnet die Funktion <span class="math notranslate nohighlight">\(\mathbf{F}: \mathbb{R} \times \mathbb{R}^3 \to \mathbb{R}^3\)</span> der Zeit <span class="math notranslate nohighlight">\(t\)</span> und den drei Funktionswerten <span class="math notranslate nohighlight">\(y_1(t), y_2(t), y_3(t)\)</span> die zeitlichen Ableitungen <span class="math notranslate nohighlight">\(\dot y_1(t), \dot y_2(t), \dot y_3(t)\)</span> zu. Wir fassen das in einem Vektor zusammen und erhalten die Schreibweise</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{F}(t, \mathbf{y}) =
+\left(
+\begin{array}{c}
+a \cdot (y_2 - y_1) \\
+y_1 \cdot (b - y_3) - y_2 \\
+y_1 \cdot y_2 - c \cdot y_3
+\end{array}
+\right),
+\end{split}\]</div>
+<p>bei der wir uns nicht davon irritieren lassen, dass <span class="math notranslate nohighlight">\(t\)</span> gar nicht rechts vom Gleichheitszeichen auftaucht. In diesem Beispiel ist der Funktionswert unabhängig von <span class="math notranslate nohighlight">\(t\)</span> (man sagt, das System ist autonom), im Allgemeinen ist das jedoch nicht der Fall.
+Damit können wir das Anfangswertproblem für gegebene Werte <span class="math notranslate nohighlight">\(a, b, c\)</span> und eine Anfangsbedingung <span class="math notranslate nohighlight">\(t_0\)</span> und <span class="math notranslate nohighlight">\(\mathbf{y}_0\)</span> näherungsweise lösen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funktion der DGL</span>
@@ -420,23 +444,35 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
     <span class="p">])</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
+<span class="c1"># Anfangswertproblem lösen</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">y0</span><span class="p">,</span> <span class="n">max_step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 
+<span class="c1"># Plotten</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;mpl_toolkits.mplot3d.art3d.Line3D at 0x1308832b0&gt;]
-</pre></div>
-</div>
-<img alt="_images/04-anfangswertprobleme_17_1.png" src="_images/04-anfangswertprobleme_17_1.png" />
+<img alt="_images/04-anfangswertprobleme_18_0.png" src="_images/04-anfangswertprobleme_18_0.png" />
 </div>
 </div>
+<p>Anmerkung: Dieses Beispiel ist die so genannte Lorenzgleichung, die eng mit dem Schlagwort des <a class="reference external" href="https://de.wikipedia.org/wiki/Schmetterlingseffekt">Schmetterlingseffekts</a> verbunden ist.</p>
 </div>
 <div class="section" id="steife-differentialgleichungen">
 <h2>Steife Differentialgleichungen<a class="headerlink" href="#steife-differentialgleichungen" title="Permalink to this headline">¶</a></h2>
+<p>Als Beispiel betrachten wir den Van der Pol Oszillator (ein Problem aus der Elektrotechnik) der auf das Anfangswertproblem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{array}{rcl}
+    \dot y_1 &amp; = &amp; y_2 \\[1ex]
+    \dot y_2 &amp; = &amp; 1000 \cdot (1-y_1^2) \cdot y_2 - y_1
+  \end{array}
+\quad \text{und} \quad
+\mathbf{y}(0) = 
+\left(\begin{array}{c}2\\0\end{array}\right)
+\end{split}\]</div>
+<p>führt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -450,6 +486,7 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
 </div>
 </div>
 </div>
+<p>Hier die Lösung mit dem Runge-Kutta-Verfahren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">],</span> <span class="n">y0</span><span class="p">)</span>
@@ -458,7 +495,15 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 1686888
+</pre></div>
 </div>
+<img alt="_images/04-anfangswertprobleme_23_1.png" src="_images/04-anfangswertprobleme_23_1.png" />
+</div>
+</div>
+<p>Offensichtlich braucht das Lösungsverfahren recht lange da eine sehr große Anzahl von Zeitschritten benötigt wird.</p>
+<p>Wir haben es hier mit einer ‘steifen’ Differentialgleichung zu tun, für die das explizite Runge-Kutta-Verfahren nicht effizient ist. Hier funktioniert eine Methode, die auch Funktionswerte am Ende des Zeitschritts verwendet (Backward Differentiation Formula - BDF) besser:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">],</span> <span class="n">y0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;BDF&#39;</span><span class="p">)</span>
@@ -471,9 +516,15 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 537
 </pre></div>
 </div>
-<img alt="_images/04-anfangswertprobleme_21_1.png" src="_images/04-anfangswertprobleme_21_1.png" />
+<img alt="_images/04-anfangswertprobleme_26_1.png" src="_images/04-anfangswertprobleme_26_1.png" />
 </div>
 </div>
+<p>Der Unterschied in Rechenzeit und der Anzahl der benötigten Schritte ist sehr deutlich!</p>
+<p>Anmerkungen:</p>
+<ul class="simple">
+<li><p>Der Begriff ‘steife Differentialgleichung’ wird in der Literatur nicht einheitlich verwendet. Vereinfacht kann man sagen, dass eine DGL steif ist, wenn explizite Verfahren nicht gut funktionieren</p></li>
+<li><p>Steife DGLn lassen sich häufig mit impliziten Verfahren (zum Beispiel BDF) besser lösen. Bei impliziten Verfahren steht in der Iterationsvorschrift das Ergebnis am Ende des Zeitschritts auch rechts vom Gleichheitszeichen, weshalb ein i.Allg. nichtlineares Gleichungssystem gelöst werden muss.</p></li>
+</ul>
 </div>
 </div>
 
