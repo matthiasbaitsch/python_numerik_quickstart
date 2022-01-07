@@ -32,15 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-import sys
-import subprocess
-subprocess.check_call([sys.executable, "-m", "pip", "install", "scipy"])
-
-from math import *
-from mpl_toolkits import mplot3d
-from scipy.integrate import solve_ivp
-
-import numpy as np
-import matplotlib.pyplot as plt
+sol = solve_ivp(F, [0, 3000], y0)
+print('N =', len(sol.t))
+plt.plot(sol.t, sol.y[0], '.-');
 -------------------
 

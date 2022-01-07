@@ -250,87 +250,12 @@
 <h1>Numerische Lösung von Anfangswertproblemen<a class="headerlink" href="#numerische-losung-von-anfangswertproblemen" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;scipy&quot;</span><span class="p">])</span>
-
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy
-  Downloading scipy-1.7.3-cp38-cp38-macosx_10_9_x86_64.whl (33.0 MB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&lt;1.23.0,&gt;=1.16.5 in /usr/local/lib/python3.8/site-packages (from scipy) (1.21.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: scipy
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed scipy-1.7.3
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_332</span><span class="o">/</span><span class="mf">2815879398.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">integrate</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="kn">from</span> <span class="nn">.quadpack</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="kn">from</span> <span class="nn">._ode</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="ne">---&gt; </span><span class="mi">94</span> <span class="kn">from</span> <span class="nn">._bvp</span> <span class="kn">import</span> <span class="n">solve_bvp</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="kn">from</span> <span class="nn">._ivp</span> <span class="kn">import</span> <span class="p">(</span><span class="n">solve_ivp</span><span class="p">,</span> <span class="n">OdeSolution</span><span class="p">,</span> <span class="n">DenseOutput</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>                    <span class="n">OdeSolver</span><span class="p">,</span> <span class="n">RK23</span><span class="p">,</span> <span class="n">RK45</span><span class="p">,</span> <span class="n">DOP853</span><span class="p">,</span> <span class="n">Radau</span><span class="p">,</span> <span class="n">BDF</span><span class="p">,</span> <span class="n">LSODA</span><span class="p">)</span>
-
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">integrate</span><span class="o">/</span><span class="n">_bvp</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">coo_matrix</span><span class="p">,</span> <span class="n">csc_matrix</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">splu</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">OptimizeResult</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span> 
-
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> 
-<span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="kn">from</span> <span class="nn">.optimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="ne">--&gt; </span><span class="mi">401</span> <span class="kn">from</span> <span class="nn">._minimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="kn">from</span> <span class="nn">._root</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="kn">from</span> <span class="nn">._root_scalar</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_minimize</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">from</span> <span class="nn">.lbfgsb</span> <span class="kn">import</span> <span class="n">_minimize_lbfgsb</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="kn">from</span> <span class="nn">.tnc</span> <span class="kn">import</span> <span class="n">_minimize_tnc</span>
-<span class="ne">---&gt; </span><span class="mi">32</span> <span class="kn">from</span> <span class="nn">.cobyla</span> <span class="kn">import</span> <span class="n">_minimize_cobyla</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span> <span class="nn">.slsqp</span> <span class="kn">import</span> <span class="n">_minimize_slsqp</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="kn">from</span> <span class="nn">._constraints</span> <span class="kn">import</span> <span class="p">(</span><span class="n">old_bound_to_new</span><span class="p">,</span> <span class="n">new_bounds_to_old</span><span class="p">,</span>
-
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">cobyla</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> 
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">_cobyla</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">.optimize</span> <span class="kn">import</span> <span class="n">OptimizeResult</span><span class="p">,</span> <span class="n">_check_unknown_options</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -480,7 +405,7 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
   \dot y_3(t) &amp;=&amp; y_1(t) \cdot y_2(t) - c \cdot y_3(t)
 \end{array}
 \end{split}\]</div>
-<p>n dem die zeitlichen Ableitungen Ableitungen von drei Funktionen jeweils von den Funktionswerten der anderen Funktionen abhängen. Dabei sind  vorgegebene Zahlenwerte. In diesem Fall ordnet die Funktion <span class="math notranslate nohighlight">\(\mathbf{F}: \mathbb{R} \times \mathbb{R}^3 \to \mathbb{R}^3\)</span> der Zeit <span class="math notranslate nohighlight">\(t\)</span> und den drei Funktionswerten <span class="math notranslate nohighlight">\(y_1(t), y_2(t), y_3(t)\)</span> die zeitlichen Ableitungen <span class="math notranslate nohighlight">\(\dot y_1(t), \dot y_2(t), \dot y_3(t)\)</span> zu. Wir fassen das in einem Vektor zusammen und erhalten die Schreibweise</p>
+<p>in dem die zeitlichen Ableitungen Ableitungen von drei Funktionen jeweils von den Funktionswerten der anderen Funktionen abhängen. Dabei sind  vorgegebene Zahlenwerte. In diesem Fall ordnet die Abbildung <span class="math notranslate nohighlight">\(\mathbf{F}: \mathbb{R} \times \mathbb{R}^3 \to \mathbb{R}^3\)</span> der Zeit <span class="math notranslate nohighlight">\(t\)</span> und den drei Funktionswerten <span class="math notranslate nohighlight">\(y_1(t), y_2(t), y_3(t)\)</span> die zeitlichen Ableitungen <span class="math notranslate nohighlight">\(\dot y_1(t), \dot y_2(t), \dot y_3(t)\)</span> zu. Wir fassen das in einem Vektor zusammen und erhalten die Schreibweise</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \mathbf{F}(t, \mathbf{y}) =
@@ -557,10 +482,58 @@ Damit können wir das Anfangswertproblem für gegebene Werte <span class="math n
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 1686888
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_707</span><span class="o">/</span><span class="mf">2613817354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">],</span> <span class="n">y0</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;N =&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
+
+<span class="nn">/usr/local/lib/python3.8/site-packages/scipy/integrate/_ivp/ivp.py</span> in <span class="ni">solve_ivp</span><span class="nt">(fun, t_span, y0, method, t_eval, dense_output, events, vectorized, args, **options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="k">while</span> <span class="n">status</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">576</span>         <span class="n">message</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span> 
+<span class="g g-Whitespace">    </span><span class="mi">578</span>         <span class="k">if</span> <span class="n">solver</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;finished&#39;</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.8/site-packages/scipy/integrate/_ivp/base.py</span> in <span class="ni">step</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>             <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span>
+<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="n">success</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_impl</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span> 
+<span class="g g-Whitespace">    </span><span class="mi">183</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.8/site-packages/scipy/integrate/_ivp/rk.py</span> in <span class="ni">_step_impl</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>             <span class="n">h_abs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span> 
+<span class="ne">--&gt; </span><span class="mi">144</span>             <span class="n">y_new</span><span class="p">,</span> <span class="n">f_new</span> <span class="o">=</span> <span class="n">rk_step</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>                                    <span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="n">scale</span> <span class="o">=</span> <span class="n">atol</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_new</span><span class="p">))</span> <span class="o">*</span> <span class="n">rtol</span>
+
+<span class="nn">/usr/local/lib/python3.8/site-packages/scipy/integrate/_ivp/rk.py</span> in <span class="ni">rk_step</span><span class="nt">(fun, t, y, f, h, A, B, C, K)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>         <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">K</span><span class="p">[:</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">[:</span><span class="n">s</span><span class="p">])</span> <span class="o">*</span> <span class="n">h</span>
+<span class="ne">---&gt; </span><span class="mi">64</span>         <span class="n">K</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">h</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> 
+<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="n">y_new</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">K</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.8/site-packages/scipy/integrate/_ivp/base.py</span> in <span class="ni">fun</span><span class="nt">(t, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span>             <span class="bp">self</span><span class="o">.</span><span class="n">nfev</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">138</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fun_single</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span> 
+<span class="g g-Whitespace">    </span><span class="mi">140</span>         <span class="bp">self</span><span class="o">.</span><span class="n">fun</span> <span class="o">=</span> <span class="n">fun</span>
+
+<span class="nn">/usr/local/lib/python3.8/site-packages/scipy/integrate/_ivp/base.py</span> in <span class="ni">fun_wrapped</span><span class="nt">(t, y)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> 
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="k">def</span> <span class="nf">fun_wrapped</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> 
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="k">return</span> <span class="n">fun_wrapped</span><span class="p">,</span> <span class="n">y0</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<img alt="_images/04-anfangswertprobleme_23_1.png" src="_images/04-anfangswertprobleme_23_1.png" />
 </div>
 </div>
 <p>Offensichtlich braucht das Lösungsverfahren recht lange da eine sehr große Anzahl von Zeitschritten benötigt wird.</p>
