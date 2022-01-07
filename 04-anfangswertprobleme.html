@@ -235,6 +235,11 @@
    Steife Differentialgleichungen
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differentialgleichungen-mit-massenmatrix">
+   Differentialgleichungen mit Massenmatrix
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -405,7 +410,7 @@ x_{n+1} = x_n + h, \quad y_{n+1} = y_n + h \cdot F(x_n, y_n)
   \dot y_3(t) &amp;=&amp; y_1(t) \cdot y_2(t) - c \cdot y_3(t)
 \end{array}
 \end{split}\]</div>
-<p>in dem die zeitlichen Ableitungen Ableitungen von drei Funktionen jeweils von den Funktionswerten der anderen Funktionen abhängen. Dabei sind  vorgegebene Zahlenwerte. In diesem Fall ordnet die Abbildung <span class="math notranslate nohighlight">\(\mathbf{F}: \mathbb{R} \times \mathbb{R}^3 \to \mathbb{R}^3\)</span> der Zeit <span class="math notranslate nohighlight">\(t\)</span> und den drei Funktionswerten <span class="math notranslate nohighlight">\(y_1(t), y_2(t), y_3(t)\)</span> die zeitlichen Ableitungen <span class="math notranslate nohighlight">\(\dot y_1(t), \dot y_2(t), \dot y_3(t)\)</span> zu. Wir fassen das in einem Vektor zusammen und erhalten die Schreibweise</p>
+<p>in dem die Ableitungen von drei Funktionen jeweils von den Funktionswerten aller Funktionen abhängen. Dabei sind <span class="math notranslate nohighlight">\(a, b, c\)</span> vorgegebene Zahlenwerte. In diesem Fall ordnet die Abbildung <span class="math notranslate nohighlight">\(\mathbf{F}: \mathbb{R} \times \mathbb{R}^3 \to \mathbb{R}^3\)</span> der Zeit <span class="math notranslate nohighlight">\(t\)</span> und den drei Funktionswerten <span class="math notranslate nohighlight">\(y_1(t), y_2(t), y_3(t)\)</span> die zeitlichen Ableitungen <span class="math notranslate nohighlight">\(\dot y_1(t), \dot y_2(t), \dot y_3(t)\)</span> zu. Wir fassen das in einem Vektor zusammen und erhalten die Schreibweise</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \mathbf{F}(t, \mathbf{y}) =
@@ -488,7 +493,7 @@ Damit können wir das Anfangswertproblem für gegebene Werte <span class="math n
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1304</span><span class="o">/</span><span class="mf">2613817354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_5294</span><span class="o">/</span><span class="mf">2613817354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">],</span> <span class="n">y0</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;N =&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
@@ -535,10 +540,10 @@ Damit können wir das Anfangswertproblem für gegebene Werte <span class="math n
 <span class="g g-Whitespace">     </span><span class="mi">21</span> 
 <span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="k">return</span> <span class="n">fun_wrapped</span><span class="p">,</span> <span class="n">y0</span>
 
-<span class="nn">/var/folders/j8/srx366hn5834sbj00b6mz9_40000gp/T/ipykernel_1304/3004830526.py</span> in <span class="ni">F</span><span class="nt">(t, y)</span>
+<span class="nn">/var/folders/j8/srx366hn5834sbj00b6mz9_40000gp/T/ipykernel_5294/3004830526.py</span> in <span class="ni">F</span><span class="nt">(t, y)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Funktion der DGL</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -570,6 +575,84 @@ Damit können wir das Anfangswertproblem für gegebene Werte <span class="math n
 <li><p>Der Begriff ‘steife Differentialgleichung’ wird in der Literatur nicht einheitlich verwendet. Vereinfacht kann man sagen, dass eine DGL steif ist, wenn explizite Verfahren nicht gut funktionieren</p></li>
 <li><p>Steife DGLn lassen sich häufig mit impliziten Verfahren (zum Beispiel BDF) besser lösen. Bei impliziten Verfahren steht in der Iterationsvorschrift das Ergebnis am Ende des Zeitschritts auch rechts vom Gleichheitszeichen, weshalb ein i.Allg. nichtlineares Gleichungssystem gelöst werden muss.</p></li>
 </ul>
+</div>
+<div class="section" id="differentialgleichungen-mit-massenmatrix">
+<h2>Differentialgleichungen mit Massenmatrix<a class="headerlink" href="#differentialgleichungen-mit-massenmatrix" title="Permalink to this headline">¶</a></h2>
+<p>Besitzt das System von Differentialgleichungen die Form</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{M} \dot{\mathbf{y}}(t) = \mathbf{F}(t, \mathbf{y}(t))
+\]</div>
+<p>dann wird die Matrix <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> Massenmatrix genannt. Hierzu ein konkretes Beispiel, das den Temperaturausgleich zwischen zwei Körpern unterschiedlicher Anfangstemperatur beschreibt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{cc}
+3000 &amp; 0 \\ 
+0 &amp; 3000
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+\dot \theta_1 \\
+\dot \theta_2
+\end{array}
+\right)
+=
+-
+\left(
+\begin{array}{rr}
+1 &amp; -1 \\ 
+-1 &amp; 1
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+\theta_1 \\
+\theta_2
+\end{array}
+\right)
+\quad \text{und} \quad
+\theta(0) = 
+\left(
+\begin{array}{c}
+10 \\ 0
+\end{array}
+\right)
+\end{split}\]</div>
+<p>Hier die beiden Matrizen in Python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">]])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Für die Funktion der DGL multiplizieren wir die Gleichung von links mit <span class="math notranslate nohighlight">\(\mathbf{M}^{-1}\)</span> durch und erhalten damit</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inverse von M multipliziert mit K</span>
+<span class="n">invMK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="o">@</span> <span class="n">K</span>
+
+<span class="c1"># Funktion der DGL</span>
+<span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">invMK</span> <span class="o">@</span> <span class="n">theta</span>
+
+<span class="c1"># Numerische Lösung</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;BDF&#39;</span><span class="p">,</span> <span class="n">jac</span><span class="o">=-</span><span class="n">invMK</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/04-anfangswertprobleme_31_0.png" src="_images/04-anfangswertprobleme_31_0.png" />
+</div>
+</div>
+<p>Dabei können wir es dem Verfahren einfacher machen, wenn wir die Jacobi-Matrix der Funktion der DGL mit übergeben.</p>
 </div>
 </div>
 
