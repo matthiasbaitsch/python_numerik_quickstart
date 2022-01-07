@@ -7,4 +7,5 @@ chapters:
 - file: 01-python
 - file: 02-numpy
 - file: 03-matplotlib
+- file: 04-anfangswertprobleme
 
