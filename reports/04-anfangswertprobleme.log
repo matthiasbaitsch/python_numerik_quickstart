@@ -17,20 +17,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-print('x =', x, ', y =', y)
-print('x + y =', x + y)
-print('x * y =', x * y)
-print('y / 4 =', y / 4)
+from math import *
+from mpl_toolkits import mplot3d
+from scipy.integrate import solve_ivp
+
+import numpy as np
+import matplotlib.pyplot as plt
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/var/folders/j8/srx366hn5834sbj00b6mz9_40000gp/T/ipykernel_98807/730720895.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mprint[0m[0;34m([0m[0;34m'x ='[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0;34m', y ='[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mprint[0m[0;34m([0m[0;34m'x + y ='[0m[0;34m,[0m [0mx[0m [0;34m+[0m [0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m'x * y ='[0m[0;34m,[0m [0mx[0m [0;34m*[0m [0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mprint[0m[0;34m([0m[0;34m'y / 4 ='[0m[0;34m,[0m [0my[0m [0;34m/[0m [0;36m4[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/var/folders/j8/srx366hn5834sbj00b6mz9_40000gp/T/ipykernel_98817/3434815917.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mfrom[0m [0mmath[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfrom[0m [0mmpl_toolkits[0m [0;32mimport[0m [0mmplot3d[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mintegrate[0m [0;32mimport[0m [0msolve_ivp[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mValueError[0m: operands could not be broadcast together with shapes (11,) (4,) 
-ValueError: operands could not be broadcast together with shapes (11,) (4,) 
+[0;31mModuleNotFoundError[0m: No module named 'scipy'
+ModuleNotFoundError: No module named 'scipy'
 

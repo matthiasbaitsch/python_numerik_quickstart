@@ -106,6 +106,11 @@
    Plots mit Matplotlib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-anfangswertprobleme.html">
+   Numerische Lösung von Anfangswertproblemen
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -195,8 +200,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vektoren-und-matrizen">
-   Vektoren und Matrizen
+  <a class="reference internal nav-link" href="#grundlagen">
+   Grundlagen
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -253,12 +258,12 @@
        Zeilen einer Matrix multiplizieren
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#vektor-von-zeilen-einer-matrix-addieren-subtrahieren">
+       Vektor von Zeilen einer Matrix addieren/subtrahieren
+      </a>
+     </li>
     </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vektor-von-zeilen-einer-matrix-addieren-subtrahieren">
-     Vektor von Zeilen einer Matrix addieren/subtrahieren
-    </a>
    </li>
   </ul>
  </li>
@@ -288,8 +293,8 @@ oder eine Python - Datei, in denen NumPy verwendet werden soll, immer mit der An
 </div>
 </div>
 </div>
-<div class="section" id="vektoren-und-matrizen">
-<h2>Vektoren und Matrizen<a class="headerlink" href="#vektoren-und-matrizen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="grundlagen">
+<h2>Grundlagen<a class="headerlink" href="#grundlagen" title="Permalink to this headline">¶</a></h2>
 <p>In NumPy sind Vektoren und Matrizen Spezialfälle von <span class="math notranslate nohighlight">\(n\)</span>-dimensionalen Arrays (daher der Name <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>), für einen Vektor gilt <span class="math notranslate nohighlight">\(n = 1\)</span> und für eine Matrix <span class="math notranslate nohighlight">\(n = 2\)</span>.
 Uns wird das in der Regel ausreichen, aber prinzipiell kann man auch mit fünfdimensionalen Arrays rechnen.</p>
 <div class="section" id="erzeugen">
@@ -349,7 +354,7 @@ Einheitsmatrix: [[1. 0. 0. 0.]
 </div>
 </div>
 </div>
-<p>Besonders praktisch ist die Funktion <code class="docutils literal notranslate"><span class="pre">linspace</span></code>, die ein Intervall von <span class="math notranslate nohighlight">\(a\)</span> bis <span class="math notranslate nohighlight">\(b\)</span> in <span class="math notranslate nohighlight">\(n - 1\)</span> gleichlange Abschnitte unterteilt.</p>
+<p>Besonders praktisch ist die Funktion <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code>, die ein Intervall von <span class="math notranslate nohighlight">\(a\)</span> bis <span class="math notranslate nohighlight">\(b\)</span> in <span class="math notranslate nohighlight">\(n - 1\)</span> gleichlange Abschnitte unterteilt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
@@ -576,7 +581,7 @@ bei der Bedeutung der Operatoren aufpassen.</p>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_91529</span><span class="o">/</span><span class="mf">730720895.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">j8</span><span class="o">/</span><span class="n">srx366hn5834sbj00b6mz9_40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_98807</span><span class="o">/</span><span class="mf">730720895.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x =&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;, y =&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x + y =&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x * y =&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
@@ -791,9 +796,8 @@ c * A = [[ 2  4  6]
 </div>
 <p>Warum funktioniert das? Weil die letzte Dimension 1 von <code class="docutils literal notranslate"><span class="pre">c[:,</span> <span class="pre">None]</span></code> auf die letzte Dimension 3 von <code class="docutils literal notranslate"><span class="pre">A</span></code> verteilt wird (<strong>broadcasting</strong>).</p>
 </div>
-</div>
 <div class="section" id="vektor-von-zeilen-einer-matrix-addieren-subtrahieren">
-<h3>Vektor von Zeilen einer Matrix addieren/subtrahieren<a class="headerlink" href="#vektor-von-zeilen-einer-matrix-addieren-subtrahieren" title="Permalink to this headline">¶</a></h3>
+<h4>Vektor von Zeilen einer Matrix addieren/subtrahieren<a class="headerlink" href="#vektor-von-zeilen-einer-matrix-addieren-subtrahieren" title="Permalink to this headline">¶</a></h4>
 <p>Um einen Vektor zu allen Zeilen einer Matrix zu addieren/subtrahieren, wie in</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -846,6 +850,7 @@ c + A = [[ 3  5  7]
  [ 6  8 10]
  [ 9 11 13]]
 </pre></div>
+</div>
 </div>
 </div>
 </div>
